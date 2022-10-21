@@ -3,7 +3,8 @@ from pybind11.setup_helpers import Pybind11Extension
 from distutils.core import setup, Extension
 
 cpython_mod = Extension('sum_from_cpython', sources = ['src/sum_cpython.c'])
-pybind_mod = Pybind11Extension('sum_from_pybind11', sources = ['src/sum_pybind11.cpp'])
+pybind_mod = Pybind11Extension('sum_from_pybind11', 
+                 extra_compile_args=['-std=c++17'], sources = ['src/sum_pybind11.cpp'])
 
 setup (name = 'demo',
         version = '0.0',
