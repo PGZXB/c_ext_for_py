@@ -1,11 +1,11 @@
-#include <pybind11/pybind11.h>
-#include <pybind11/stl.h>
+#include <nanobind/nanobind.h>
+#include <nanobind/stl/vector.h>
 
 #include "sum.h"
 
-namespace py = pybind11;
+namespace nb = nanobind;
 
-PYBIND11_MODULE(sum_from_pybind11, m) {
+NB_MODULE(sum_from_nanobind, m) {
   m.def("my_sum", [](std::vector<int>& data) {
           int sum = 0;
           const int *c_arr = data.data();

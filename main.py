@@ -1,5 +1,6 @@
 import sum_from_pybind11
 import sum_from_cpython
+import sum_from_nanobind
 import time
 import ctypes
 
@@ -37,8 +38,9 @@ for _ in range(WARMPUP):
     run_once(sum_from_pybind11.my_sum, data)
     run_once(sum_from_ctypes.my_sum, arr_type(*data), ctypes.c_int(n))
     run_once(sum_from_cpython.my_sum, data)
+    run_once(sum_from_nanobind.my_sum, data)
 
 timed_run(sum_from_pybind11.my_sum, 'pybind')
 timed_run(sum_from_ctypes.my_sum, 'ctypes')
 timed_run(sum_from_cpython.my_sum, 'cpython')
-
+timed_run(sum_from_nanobind.my_sum, 'nanobind')
